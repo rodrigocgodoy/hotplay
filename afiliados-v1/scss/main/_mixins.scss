@@ -1,0 +1,31 @@
+@mixin flex($direction, $align, $justify, $gap: 0px) {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+	flex-direction: $direction;
+	gap: $gap;
+}
+
+@mixin limitText($height, $lines) {
+	height: $height;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: $lines;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+@function z($name) {
+	@if index($z-indexes, $name) {
+		@return (length($z-indexes) - index($z-indexes, $name)) + 1;
+	} @else {
+		@warn 'O z-index "#{$name}" não foi definido; Escolha um da seguinte lista: #{$z-indexes}';
+		@return null;
+	}
+}
+
+@mixin responsive($screenWidth) {
+	@media (max-width: $screenWidth) {
+		@content;
+	}
+}

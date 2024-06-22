@@ -1,0 +1,4 @@
+# AuthType Basic
+# AuthName "Área Restrita"
+# AuthUserFile /var/www/bonus.hotplay.com/.htpasswd
+# Require valid-user
